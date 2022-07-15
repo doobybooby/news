@@ -12,13 +12,56 @@
   justify-content: center;
   align-items: center;
 }
+.header h1{
+  margin: .75;
+}
+.header p{
+  margin: 0;
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.nav{
+  display: flex;
+}
+.nav a {
+  margin: 0 1rem;
+}
+.active {
+  background-color: lightskyblue;
+}
 
 .news-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: 0 2rem;
+}
+
+.news {
+  list-style: none;
+  list-style: none;
+  background-color: rgb(218, 218, 216);
+  margin: .5rem;
+  padding: 1rem;
+}
+
+.news-info{
+  display: flex;
+}
+
+.news-info div {
+  margin: 0 1rem;
+}
+
+.category-list {
+  list-style: none;
+  display: flex;
+  flex-flow: wrap;
+  margin: .25rem;
+  /* background-color: aqua; */
+  justify-content: space-around;
+
 }
 
 img {
