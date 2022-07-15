@@ -2,8 +2,8 @@ import React, {useState, useEffect} from 'react'
 import axios from 'axios'
 
 export const NyTimes = () => {
-  const [ newsData, setNewsData ] = useState()
-  const [loading, setLoading ] = useState(true)
+  const [ timesNewsData, setTimesNewsData ] = useState()
+  const [ loading, setLoading ] = useState(true)
 
   useEffect(()=> {
     const fetchWantedData = async()=> {
@@ -15,7 +15,7 @@ export const NyTimes = () => {
           }
         })
         const wantedData = response.data.results
-        setNewsData(wantedData)
+        setTimesNewsData(wantedData)
         console.log('NY TIMES DATA ---------', wantedData)
       }
       catch(er){
@@ -26,23 +26,20 @@ export const NyTimes = () => {
     fetchWantedData()
   }, [])
 
-  // useEffect(()=>{
-
-  // },[setNewsData])
-
   return (
-    <div>
+    <div className='nytimes-component'>
       <h1>NyTimes</h1>
       <div>
         {
           loading ?
           <p>loading</p>:
-          newsData.map( news=> {
+          timesNewsData.map( news=> {
             return (
-              <div key={news.url}>
+              <div className='times-news' key={news.url}>
                 <h3>{news.title}</h3>
                 <h4>{news.abstract}</h4>
                 <h4>BY: {news.byline}</h4>
+                <img src={news.multimedia[0].url} alt="unavailable" />
                 <a href={news.short_url} >SROUCE</a>
                 <button>+FAVORITE</button>
               </div>
@@ -50,7 +47,6 @@ export const NyTimes = () => {
           })
         }
       </div>
-
     </div>
   )
 }

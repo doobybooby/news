@@ -2,11 +2,12 @@ import axios from 'axios'
 import { useState, useEffect } from 'react';
 
 function Currents() {
-  const [wantedData, setWantedData] = useState({})
+  const [currentsNews, setCurrentsNews] = useState({})
   const [loading, setLoading ] = useState(true)
   const [category, setCategory ] = useState({})
 
   useEffect(()=> {
+  
     const fetchWantedData = async()=> {
       setLoading(true)
       try{  
@@ -16,11 +17,11 @@ function Currents() {
           }
         })
         const wantedData = response.data
-        setWantedData(wantedData)
-        // console.log(wantedData.news)
-        wantedData.news.map(x => {
-          x.category.map(cat=> {
-            if(!Object.keys(category).includes(cat)){
+        setCurrentsNews(wantedData)
+        //{category, categoryCount} generated based on the current news
+        wantedData.news.map(news => {
+          news.category.map(cat => {
+            if( !Object.keys(category).includes(cat) ) {
               const newCat = {...category}
               category[cat] = 1
               setCategory(newCat)
@@ -63,7 +64,7 @@ function Currents() {
           <p>DATA NOT AVAILABLE YET</p> :
           <div className='news-container'>
             {
-              wantedData.news.map(x => {
+              currentsNews.news.map(x => {
                 return (
                   <li className='news' key={x.id}>
                     <h3>{x.title}</h3>

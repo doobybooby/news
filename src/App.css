@@ -67,3 +67,28 @@
 img {
   width: 50%;
 }
+
+.nytimes-component{
+  display: flex;
+  margin: 1rem;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.times-news {
+  background-color: bisque;
+  display: flex;
+  flex-direction: column;
+  margin: 1rem;
+}
+
+.google-news {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: azure;
+  margin: 1rem;
+}
