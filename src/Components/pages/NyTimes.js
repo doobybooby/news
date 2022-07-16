@@ -14,7 +14,7 @@ export const NyTimes = () => {
       try{  
         const response = await axios.get('https://api.nytimes.com/svc/topstories/v2/home.json', {
           params: {
-            'api-key':'Aar7dPHkueaMHqaRuSmoU2TCXayulAD1'
+            'api-key':''
           }
         })
         const wantedData = response.data.results
