@@ -26,6 +26,7 @@ export const Google = () => {
 
   return (
     <div className='google-components'>
+      <h1>GOOGLE NEWS</h1>
       {
         loading ?
           <div>Loading Google News</div> :

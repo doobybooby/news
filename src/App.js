@@ -8,16 +8,16 @@ import { Google } from './Components/pages/Google';
 
 function App() {
   return (
-    <div className='App-component'>
-      <Nav />
-      <Routes>
-        <Route path='/' element={<Home />}> </Route>
-        <Route path='/currents' element={<Currents />}> </Route>
-        <Route path='/nytimes' element={<NyTimes />}> </Route>
-        <Route path='/googlenews' element={<Google />}> </Route>
-        <Route path='/favorites' element={<Home />}> </Route>
-      </Routes>
-    </div>
+      <div className='App-component'>
+        <Nav />
+        <Routes>
+          <Route path='/' element={<Home />}> </Route>
+          <Route path='/currents' element={<Currents />}> </Route>
+          <Route path='/nytimes' element={<NyTimes />}> </Route>
+          <Route path='/googlenews' element={<Google />}> </Route>
+          <Route path='/favorites' element={<Home />}> </Route>
+        </Routes>
+      </div>
   );
 }
 
