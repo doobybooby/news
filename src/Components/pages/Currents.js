@@ -15,7 +15,7 @@ function Currents() {
       try{  
         const response = await axios.get('https://api.currentsapi.services/v1/latest-news', {
           params: {
-            apiKey:'3I26257T0D22-WMlA7PAF9tG-ln8xQO-A1fTewKgj6YYtEuG'
+            apiKey:''
           }
         })
         const wantedData = response.data
