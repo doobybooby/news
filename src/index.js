@@ -4,13 +4,13 @@ import './index.css';
 import App from './App';
 import { BrowserRouter } from 'react-router-dom';
 
-export const FavoriteContext = React.createContext()
-
+const favoriteList = []
+export const FavoriteContext = React.createContext(favoriteList)
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
       <BrowserRouter>
-        <FavoriteContext.Provider value={[]}>
+        <FavoriteContext.Provider value={favoriteList}>
           <App />
         </FavoriteContext.Provider>
       </BrowserRouter>

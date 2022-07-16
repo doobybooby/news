@@ -1,11 +1,13 @@
 import axios from 'axios'
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
+import { FavoriteContext } from '../..';
 
 function Currents() {
   const [currentsNews, setCurrentsNews] = useState({})
   const [loading, setLoading ] = useState(true)
   const [category, setCategory ] = useState({})
-
+  const favoriteList = useContext(FavoriteContext)
+  console.log('fave list =====', favoriteList)
   useEffect(()=> {
   
     const fetchWantedData = async()=> {
@@ -76,7 +78,10 @@ function Currents() {
                         <h4>Author: {x.author}</h4>
                       </div>
                     </div>
-                    <button>+Favorite</button>
+                    <button onClick={()=> {
+                      favoriteList.push(x.url)
+                      console.log(favoriteList)
+                    }}>+Favorite</button>
                   </li>
                 )
               })

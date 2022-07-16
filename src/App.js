@@ -5,6 +5,7 @@ import Nav from './Components/util/Nav';
 import Currents from './Components/pages/Currents';
 import { NyTimes } from './Components/pages/NyTimes';
 import { Google } from './Components/pages/Google';
+import { Favorites } from './Components/pages/Favorites';
 
 function App() {
   return (
@@ -15,7 +16,7 @@ function App() {
           <Route path='/currents' element={<Currents />}> </Route>
           <Route path='/nytimes' element={<NyTimes />}> </Route>
           <Route path='/googlenews' element={<Google />}> </Route>
-          <Route path='/favorites' element={<Home />}> </Route>
+          <Route path='/favorites' element={<Favorites />}> </Route>
         </Routes>
       </div>
   );

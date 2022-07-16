@@ -1,9 +1,11 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import axios from 'axios'
+import { FavoriteContext } from '../..'
 
 export const Google = () => {
   const [ googleNews, setGoogleNews ] = useState()
   const [loading, setLoading ] = useState(true)
+  const favoriteList = useContext(FavoriteContext)
 
   useEffect(()=>{
     const fetchGoogleNews = async()=> {
@@ -19,6 +21,7 @@ export const Google = () => {
       })
       const news = response.data.articles
       setGoogleNews(news)
+      console.log(news)
       setLoading(false)
     }
     fetchGoogleNews()
@@ -32,15 +35,18 @@ export const Google = () => {
           <div>Loading Google News</div> :
           <div>
             {
-              googleNews.map(news => {
+              googleNews.map((news, idx) => {
                 return (
-                  <div className='google-news' key={news.url}>
+                  <div className='google-news' key={idx}>
                     <h3>{news.title}</h3>
                     <h4>{news.description}</h4>
                     <h4>AUTHOR: {news.author}</h4>
                     <img src={news.urlToImage} alt='Unavailable'/>
                     <a href={news.url}>Source </a>
-                    <button>+Favorite</button>
+                    <button onClick={()=> {
+                      favoriteList.push(news.url)
+                      console.log(favoriteList)
+                    }}>+Favorite</button>
                   </div>
                 )
               })

@@ -1,12 +1,14 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState, useEffect, useContext} from 'react'
 import axios from 'axios'
 import { FavoriteContext } from '../..'
 
-export const NyTimes = (props) => {
+export const NyTimes = () => {
   const [ timesNewsData, setTimesNewsData ] = useState()
   const [ loading, setLoading ] = useState(true)
-  console.log('this is props ---------', props)
+  const favoriteList = useContext(FavoriteContext)
+
   useEffect(()=> {
+    console.log('this is props ---------', favoriteList)
     const fetchNewsData = async()=> {
       setLoading(true)
       try{  
@@ -25,10 +27,9 @@ export const NyTimes = (props) => {
       setLoading(false)
     } 
     fetchNewsData()
-  }, [])
+  }, [favoriteList])
 
   return (
-    <FavoriteContext.Consumer>
       <div className='nytimes-component'>
         <h1>NY Times</h1>
         <div>
@@ -43,13 +44,15 @@ export const NyTimes = (props) => {
                   <h4>BY: {news.byline}</h4>
                   <img src={news.multimedia[0].url} alt="unavailable" />
                   <a href={news.short_url} >SROUCE</a>
-                  <button>+FAVORITE</button>
+                  <button onClick={()=>{
+                    favoriteList.push(news.short_url)
+                    console.log('after-----', favoriteList)
+                  }}>+FAVORITE</button>
                 </div>
               )
             })
           }
         </div>
       </div>
-    </FavoriteContext.Consumer>
   )
 }
