@@ -16,7 +16,7 @@ export const Google = () => {
           q: 'tesla',
           from: '2022-06-15',
           sortBy: 'publishedAt',
-          apiKey: '5a531cf15af84bf0a02f19ae3b06ef4a'
+          apiKey: ''
         }
       })
       const news = response.data.articles
